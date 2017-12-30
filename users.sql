@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 -- 表的结构 `user`
 --
-
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
   `username` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -47,10 +47,10 @@ CREATE TABLE `user` (
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_email_unique` (`score`),
   ADD KEY `user_id_index` (`id`);
+  
 --
-ALTER TABLE `user` AUTO_INCREMENT=10000;
+
 
 --
 -- 在导出的表使用AUTO_INCREMENT
@@ -63,6 +63,4 @@ ALTER TABLE `user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `user` AUTO_INCREMENT=200700001;

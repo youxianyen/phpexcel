@@ -270,9 +270,39 @@ class lib_mysqli {
     根据传入年级数，查询每个年级的学生数据
     */
     public function getDataByGrade($grade)
-    {
-        $sql = 'select id, username, score, class from user where grade = ' . $grade . ' order by score desc';
+    {   //关键词 DISTINCT 用于返回唯一不同的值。
+        $sql = 'select distinct(grade) from user';
         $res = self::get_all($sql);
         return $res;
     }
+
+    /*
+    **查询所有的年级
+    */
+    public function getAllGrade()
+    {
+        $sql = 'select distinct(grade) from user order by grade asc';
+        $res = self::get_all($sql);
+        return $res;
+    }
+
+    /*
+    **根据年级数查询所有的班级
+    */
+    public function getClassByGrade($grade)
+    {
+        $sql = 'select distinct(class) from user where grade=' . $grade . ' order by class asc';
+        $res = self::get_all($sql);
+        return $res;
+    }    
+
+    /*
+    **根据年级数班级数查询所有的班级
+    */
+    public function getDataByClassGrade($class, $grade)
+    {
+        $sql = 'select username,score from user where class=' . $class . ' and grade=' . $grade . ' order by score desc';
+        $res = self::get_all($sql);
+        return $res;
+    }    
 }  
