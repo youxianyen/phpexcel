@@ -56,9 +56,9 @@ foreach ($gradeInfo as $g_k => $g_v)
 		$j = 5;    //检查Excel表格，从第五行开始填充数据
 		foreach ($info as $key => $val) 
 		{
-			//$objSheet->setCellValue($nameIndex.$j, $val['username'])->setCellValue($scoreIndex.$j, $val['score']);    //填充学生信息.
-			$objSheet->setCellValue($nameIndex.$j, $val['username'])
-			         ->setCellValueExplicit($scoreIndex.$j, $val['score'] . '1234567892564', PHPExcel_Cell_DataType::TYPE_STRING);    //填充学生信息.  方法参考文档4.5.1节
+			$objSheet->setCellValue($nameIndex.$j, $val['username'])->setCellValue($scoreIndex.$j, $val['score']);    //填充学生信息.
+			/*$objSheet->setCellValue($nameIndex.$j, $val['username'])
+			         ->setCellValueExplicit($scoreIndex.$j, $val['score'] . '1234567892564', PHPExcel_Cell_DataType::TYPE_STRING);    *///填充学生信息.  方法参考文档4.5.1节
 			$j++;  //跳到下一行
 		}
 		$index++;
